@@ -14,7 +14,7 @@ pipeline {
         git 'https://github.com/tongueroo/demo-java.git'
       }
 
-    }*/ 
+    }*/
     stage('Build') {
       steps {
         // Run the maven build
@@ -24,12 +24,12 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-          //deploy war on tomcat server
-          deploy adapters: [tomcat8(url: "${tomcatServerUrl}", 
-                              credentialsId: 'tomcat-credentials')], 
-                     war: 'target/*.war',
-                     contextPath: 'pipeline-app'
-          
+        //deploy war on tomcat server
+        deploy adapters: [tomcat8(url: "${tomcatServerUrl}",
+            credentialsId: 'tomcat-credentials')],
+          war: 'target/*.war',
+          contextPath: 'pipeline-app'
+
       }
     }
   }
