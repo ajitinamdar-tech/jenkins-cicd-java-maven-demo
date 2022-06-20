@@ -7,13 +7,13 @@ pipeline {
   }
 
   stages {
-    stage('Code checkout') {
+    /* stage('Code checkout') {
       steps {
         //download code from github
         git 'https://github.com/tongueroo/demo-java.git'
       }
 
-    }
+    }*/ 
     stage('Build') {
       steps {
         // Run the maven build
