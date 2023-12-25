@@ -16,12 +16,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        // deploy war on tomcat server
-        sh "sudo cp /*.war /opt/tomcat/webapps/"
-        //deploy adapters: [[$class: 'TomcatAdapter', url: "${tomcatServerUrl}", credentialsId: 'tomcat-credentials']],
-         // war: 'target/*.war', contextPath: 'pipeline-app'
+  steps {
+    // deploy war on tomcat server
+    deploy adapters: [[$class: 'TomcatAdapter', url: "${tomcatServerUrl}", credentialsId: 'tomcat-credentials']],
+      war: 'target/*.war', contextPath: 'pipeline-app'
+  }
+  post {
+    success {
+      script {
+        // Copy the WAR file to the Tomcat webapps folder
+        sh "sudo cp target/*.war /opt/tomcat/webapps/"
       }
     }
+  }
+}
   }
 }
