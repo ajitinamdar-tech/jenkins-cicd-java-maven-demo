@@ -18,21 +18,7 @@ pipeline {
     stage('Deploy') {
   steps {
     script {
-      def tomcatAdapters = [
-        [$class: 'TomcatAdapter', url: "${tomcatServerUrl}", credentialsId: 'tomcat-credentials']
-      ]
-      def deployArgs = [adapters: tomcatAdapters, contextPath: 'pipeline-app', war: 'target/*.war']
-
-      // deploy war on tomcat server
-      deploy deployArgs
-    }
-  }
-  post {
-    success {
-      script {
-        // Copy the WAR file to the Tomcat webapps folder
-        sh "sudo cp target/*.war /opt/tomcat/webapps/"
-      }
+      deploy adapters: [[$class: 'TomcatAdapter', credentialsId: 'tomcat-credentials', url: "${tomcatServerUrl}", path: '/pipeline-app']], war: 'target/*.war'
     }
   }
 }
