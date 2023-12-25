@@ -1,4 +1,4 @@
-def tomcatServerUrl = "13.233.132.124"
+def tomcatServerUrl = "http://172.31.40.78"
 
 pipeline {
   agent {
@@ -6,6 +6,7 @@ pipeline {
       label 'jenkins-slave'
     }
   }
+tools{maven 'Maven'}
 
   stages {
     stage('Build') {
@@ -20,7 +21,7 @@ pipeline {
     //script {
      // deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: '13.233.132.124')], contextPath: '/opt/tomcat/webapps', war: '**/*.war'
    /// }
-   sh "sudo cp /target/*.war /opt/tomcat/webapps/"
+   sh "sudo cp /target/*.war jenkins-maven-demo"
   }
 }
   }
