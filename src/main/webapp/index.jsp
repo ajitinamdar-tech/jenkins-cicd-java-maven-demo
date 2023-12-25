@@ -1,7 +1,6 @@
 <html>
 <body>
-<h2>Hello world!</h2>
-<h3>I'm Bhagyashree</h3>
-<p>You are visiting Jenkins declarative pipeline project</p>
+<h2>Welcome to jenkins groovy!</h2>
+<p>You are visiting Jenkins scripted pipeline project</p>
 </body>
 </html>
