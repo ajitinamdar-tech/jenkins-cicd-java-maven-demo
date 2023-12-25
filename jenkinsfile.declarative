@@ -1,4 +1,4 @@
-def tomcatServerUrl = "http://172.31.40.78"
+def tomcatServerUrl = "13.233.132.124"
 
 pipeline {
   agent {
@@ -18,7 +18,7 @@ pipeline {
     stage('Deploy') {
   steps {
     script {
-      deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://172.31.40.78')], contextPath: '/opt/tomcat/webapps', war: '**/*.war'
+      deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: '13.233.132.124')], contextPath: '/opt/tomcat/webapps', war: '**/*.war'
     }
   }
 }
