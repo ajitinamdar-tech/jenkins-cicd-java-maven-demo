@@ -18,10 +18,9 @@ tools{maven 'Maven'}
 
     stage('Deploy') {
   steps {
-    //script {
-     // deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: '13.233.132.124')], contextPath: '/opt/tomcat/webapps', war: '**/*.war'
-   /// }
-   sh "sudo cp /target/*.war jenkins-maven-demo"
+    script {
+     deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://172.31.40.78:8080')], contextPath: 'jenkins-maven-demo', onFailure: false, war: '**/*.war'
+    }
   }
 }
   }
