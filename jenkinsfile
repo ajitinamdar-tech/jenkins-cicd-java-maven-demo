@@ -1,4 +1,4 @@
-def tomcatServerUrl = "http://13.201.10.78"
+def tomcatServerUrl = "http://172.31.40.78"
 pipeline {
   agent {
     node {
@@ -25,7 +25,7 @@ pipeline {
     stage('Deploy') {
       steps {
         //deploy war on tomcat server
-        deploy adapters: [tomcat9(url: "${http://13.201.10.78:8080/}",
+        deploy adapters: [tomcat9(url: "${http://172.31.40.78:8080/}",
             credentialsId: 'tomcat-credentials')],
           war: 'target/*.war',
           contextPath: 'pipeline-app'
