@@ -18,7 +18,7 @@ pipeline {
     stage('Deploy') {
       steps {
         // deploy war on tomcat server
-        sh "sudo cp /target/*.war /opt/tomcat/webapps/"
+        sh "sudo cp /*.war /opt/tomcat/webapps/"
         //deploy adapters: [[$class: 'TomcatAdapter', url: "${tomcatServerUrl}", credentialsId: 'tomcat-credentials']],
          // war: 'target/*.war', contextPath: 'pipeline-app'
       }
