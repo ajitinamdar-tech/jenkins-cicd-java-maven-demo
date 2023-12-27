@@ -15,7 +15,7 @@ tools{maven 'Maven'}
     stage('Deploy') {
   steps {
     script {
-     deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://172.31.40.78:8080')], contextPath: 'jenkinsfile.declarative', war: '**/*.war'
+     deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://172.31.40.78:8080')], contextPath: 'webapps', war: '**/*.war'
     }
   }
 }
