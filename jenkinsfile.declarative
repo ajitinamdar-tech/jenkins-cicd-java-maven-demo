@@ -1,11 +1,7 @@
 def tomcatServerUrl = "http://172.31.40.78"
 
 pipeline {
-  agent {
-    node {
-      label 'jenkins-slave'
-    }
-  }
+  agent any
 tools{maven 'Maven'}
 
   stages {
