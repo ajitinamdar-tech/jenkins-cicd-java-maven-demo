@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Welcome to jenkins groovy!</h2>
-<p>You are visiting Jenkins scripted pipeline project</p>
+<h2>Welcome to jenkins WebHook trigger Job!</h2>
+<p>You are visiting Jenkins WebHook Trigger project</p>
 </body>
 </html>
